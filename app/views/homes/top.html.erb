@@ -1,0 +1,19 @@
+<h1>topページ</h1>
+<div crass="container">
+<div class="row">
+    <div class="mx-auto col-md-6">
+      <%= flash[:notice] %>
+      <h1><strong>welcome to</strong><i class="fas fa-book"></i><strong>bookers</strong></h1>
+      <p>inbookers</p>
+      <p>you can share and exchange your opinions , <br>inpressions , and emotions
+
+      about various books!</p>
+      <div class="btn-wrapper col-5 mx-auto">
+        <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary btn-block" %>
+      </div>
+      </div>
+    </div>
+</div>
+
+
