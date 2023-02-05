@@ -44,7 +44,7 @@
         <%= @book.title %>
         <% end %>
         </td>
-      <td><%= @book.body %></td>
+      <td><%= @book.body %></td> 
       <td>
           <% if @book.user == current_user %>
           <%= link_to "Destroy", book_path(@book), method: :delete %>
@@ -54,6 +54,14 @@
           <% if @book.user == current_user %>
           <%= link_to "Edit", edit_book_path(@book) %>
           <% end %>
+      </td>
+      <td>
+        <p>コメント件数：<%= @book.post_comments.count %></p>
+           <% @book.post_comments.each do |post_comment| %>
+           <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+           <%= post_comment.user.name %>
+           <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+           <% end %>
       </td>
     </tr>
   </table>
