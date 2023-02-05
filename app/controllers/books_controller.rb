@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   def show
     @bok = Book.new
     @book = Book.find(params[:id])
-    @post_comment = PostComment.new
+    @book_comment = BookComment.new
   end
   def edit
     @book = Book.find(params[:id])
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def correct_user
      book = Book.find(params[:id])
      if book.user_id != current_user.id
